@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>I'm Sorry ❤️</title>
+<style>
+body{
+    margin:0;
+    padding:0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg,#ff9a9e,#fad0c4);
+    text-align:center;
+    overflow:hidden;
+}
+
+.container{
+    margin-top:120px;
+}
+
+h1{
+    font-size:50px;
+    color:white;
+}
+
+p{
+    font-size:20px;
+    color:white;
+}
+
+button{
+    padding:12px 25px;
+    font-size:18px;
+    border:none;
+    border-radius:25px;
+    margin:10px;
+    cursor:pointer;
+}
+
+#yes{
+    background:#ff4d6d;
+    color:white;
+}
+
+#no{
+    background:white;
+    color:#ff4d6d;
+    position:relative;
+}
+
+.heart{
+    position:absolute;
+    color:red;
+    animation: float 5s linear infinite;
+}
+
+@keyframes float{
+    0%{
+        transform:translateY(0);
+        opacity:1;
+    }
+    100%{
+        transform:translateY(-800px);
+        opacity:0;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+<h1>I'm Sorry ❤️</h1>
+
+<p>I know I acted like I didn’t care earlier.</p>
+<p>But the truth is… I care about you a lot.</p>
+<p>I hate that I made you sad.</p>
+
+<h3>Will you forgive me? 🥺</h3>
+
+<button id="yes" onclick="forgive()">Yes ❤️</button>
+<button id="no" onmouseover="moveButton()">No</button>
+</div>
+
+<script>
+
+function forgive(){
+    alert("Yay! Thank you for forgiving me ❤️ You mean a lot to me.");
+}
+
+function moveButton(){
+    var button = document.getElementById("no");
+    var x = Math.random() * window.innerWidth - 100;
+    var y = Math.random() * window.innerHeight - 50;
+    button.style.position = "absolute";
+    button.style.left = x + "px";
+    button.style.top = y + "px";
+}
+
+function createHeart(){
+    const heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerHTML = "❤️";
+    heart.style.left = Math.random()*100+"vw";
+    heart.style.fontSize = Math.random()*20 + 20 + "px";
+
+    document.body.appendChild(heart);
+
+    setTimeout(()=>{
+        heart.remove();
+    },5000);
+}
+
+setInterval(createHeart,500);
+
+</script>
+
+</body>
+</html>
